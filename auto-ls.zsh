@@ -3,8 +3,8 @@ auto_ls() {
 	echo
   if command -v colorls &>/dev/null; then
     colorls -A --group-directories-first
-  else
-    ls -AG --color=always
+ elif [[ ! $(pwd) == "$HOME/.config" ]]; then 
+    exa --color=always --group-directories-first --icons
   fi
 }
 
