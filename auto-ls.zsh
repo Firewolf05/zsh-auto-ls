@@ -1,10 +1,13 @@
 auto_ls() {
 	emulate -L zsh
-	echo
+  #if [[ ! $(pwd) == "$HOME/.config" ]]; then 
+  #echo
+  #fi
   if command -v colorls &>/dev/null; then
     colorls -A --group-directories-first
- elif [[ ! $(pwd) == "$HOME/.config" ]]; then 
-    exa --color=always --group-directories-first --icons
+  elif [[ ! $(pwd) == "$HOME/.config" ]]; then 
+    ls
+  #  echo
   fi
 }
 
